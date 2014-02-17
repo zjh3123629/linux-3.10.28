@@ -60,14 +60,6 @@ config SND_SOC_SAMSUNG_SMDK_WM8580
 	help
 	  Say Y if you want to add support for SoC audio on the SMDKs.
 	  
-config SND_SOC_SAMSUNG_SMDK_WM8960
-	tristate "SoC I2S Audio support for WM960 on SMDK"
-	depends on SND_SOC_SAMSUNG && (MACH_SMDK6410 || MACH_SMDKC100 || MACH_SMDK6440 || MACH_SMDK6450 || MACH_SMDKV210 || MACH_SMDKC110)
-	#select SND_SOC_WM8960
-	select SND_SAMSUNG_I2S
-	help
-	  Say Y if you want to add support for SoC audio on the SMDKs.
-
 config SND_SOC_SAMSUNG_SMDK_WM8994
 	tristate "SoC I2S Audio support for WM8994 on SMDK"
 	depends on SND_SOC_SAMSUNG
@@ -106,6 +98,12 @@ config SND_SOC_SAMSUNG_S3C24XX_UDA134X
 	select SND_S3C24XX_I2S
 	select SND_SOC_L3
 	select SND_SOC_UDA134X
+
+# add tiny210 audio support
+config SND_SOC_SAMSUNG_S5PV2XX_WM8960
+	tristate "SoC I2S Audio support WM8960 wired to a S5PV2xx"
+	depends on SND_SOC_SAMSUNG && (MACH_SMDK6410 || MACH_SMDKC100 || MACH_SMDK6440 || MACH_SMDK6450 || MACH_SMDKV210 || MACH_SMDKC110)
+	select SND_S5PV2XX_I2S
 
 config SND_SOC_SAMSUNG_SIMTEC
 	tristate
